@@ -36,9 +36,10 @@ class User extends Authenticatable
 
     public function getEmailAttribute($email)
     {
-        preg_match("/\@.*$/", $email, $emailDomain);
+        $emailDomainRegex = "/(?<=\@).*$/";
+        preg_match($emailDomainRegex, $email, $emailDomain);
         $emailDomainLength = (count($emailDomain) ? strlen($emailDomain[0]) : 1);
 
-        return preg_replace("/\@.*$/", str_repeat("*", $emailDomainLength), $email);
+        return preg_replace($emailDomainRegex, str_repeat("*", $emailDomainLength), $email);
     }
 }

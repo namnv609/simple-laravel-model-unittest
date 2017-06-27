@@ -11,7 +11,8 @@ class UserModelTest extends TestCase
     public function testHiddenEmailDomain()
     {
         $user = factory(\App\Models\User::class)->make();
+        $correctEmail = "namnv609@" . str_repeat("*", strlen("gmail.com"));
 
-        $this->assertEquals($user->email, "namnv609**********");
+        $this->assertEquals($user->email, $correctEmail);
     }
 }
