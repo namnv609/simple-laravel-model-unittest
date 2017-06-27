@@ -1,2 +1,1 @@
-# simple-laravel-model-unittest
-Simple Laravel model Unittest
+# Simple Laravel model Unittest
